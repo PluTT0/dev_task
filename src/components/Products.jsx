@@ -2,7 +2,7 @@ import { useState } from "react";
 import ProductCard from "./ProductCard";
 
 
-const Products = ({products, serchValue}) => {
+const Products = ({filterProducts, serchValue}) => {
   const [cardsOnPage, setCardsOnPage] = useState(6)
 
   const setCards = () => {
@@ -12,7 +12,7 @@ const Products = ({products, serchValue}) => {
   return (
     <section className='product__wrapper'>
       <div className='product-list'>
-         <ProductCard products={products.slice(0, cardsOnPage)} serchValue={serchValue} />
+         <ProductCard filterProducts={filterProducts.slice(0, cardsOnPage)} serchValue={serchValue} />
       </div>
       <button className="more_btn" onClick={() => setCards()}>Pokaż więcej 
         <svg xmlns="http://www.w3.org/2000/svg" width="7" height="6" viewBox="0 0 7 6" fill="none">

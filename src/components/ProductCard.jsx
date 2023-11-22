@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ProductCard = ({products, serchValue}) => {
+const ProductCard = ({filterProducts, serchValue}) => {
   return (
-    products.filter(
+    filterProducts.filter(
       (item) => item.title.toLowerCase().replace(/\s/g,'').includes(serchValue)).map((product) => {
       return(
         <div className="product-card" key={product.id}>

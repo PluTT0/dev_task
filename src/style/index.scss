@@ -1,3 +1,18 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
 $btn-color: rgb(20, 40, 160);
 $card-point-color: #767676;
 $select-color: #F3F3F3;
@@ -221,6 +236,12 @@ $select-color: #F3F3F3;
     border: none;
     margin: 0 auto;
     margin-top: 16px;
+}
+
+.card-btn:hover {
+    background: #1C1C1C;
+    color: #fff;
+    transition: 0.5s;
 }
 
 .more_btn {

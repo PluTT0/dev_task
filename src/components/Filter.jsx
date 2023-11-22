@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
-const Filter = ({products}) => {
+const Filter = ({filterProducts, setProducts}) => {
   const [sortValue, setFilterValue] = useState({});
-  const [sortProducts, setSortProducts] = useState({});
 
   const {category, copacity, functionality, energy} = sortValue;
 
@@ -13,20 +12,27 @@ const Filter = ({products}) => {
       [e.target.name]: value,
     })
   }
-
+  
+  
   const sortProd = useCallback((data) => {
     if(category === 'price') {
-      setSortProducts(data.sort((a, b) => { return  parseInt(a.price.replace(/\s/g,'')) - parseInt(b.price.replace(/\s/g,''))}))
-    } else if(copacity !== 'all' ) {
-      setSortProducts(data.filter((item) => item.title.toLowerCase().replace(/\s/g,'').includes(copacity)))
+       setProducts(data.sort((a, b) => { return  parseInt(a.price.replace(/\s/g,'')) - parseInt(b.price.replace(/\s/g,''))}))
+    } else if(functionality !== 'all') {
+       setProducts(data.filter((item) => item.functionality.toLowerCase().replace(/\s/g,'').includes(functionality.toLowerCase().replace(/\s/g,''))))
+    } else if(energy !== 'all') {
+      setProducts(data.filter((item) => item.energy.toLowerCase().replace(/\s/g,'').includes(energy.toLowerCase().replace(/\s/g,''))))
+    } else if (copacity !== 'all') {
+      setProducts(data.filter((item) => item.parseInt(copacity).includes(parseInt(copacity))))
     }
-  },[category, copacity])
+    else {
+       setProducts(data)
+    }
+  },[category, copacity, energy, functionality, setProducts])
 
-  console.log(sortValue,sortProducts)
  
   useEffect(() => {
-    sortProd(products)
-  },[sortValue, products, sortProd])
+      sortProd(filterProducts)
+  },[sortProd, sortValue])
   
   return (
     <div className="filter__wrapper">
@@ -44,9 +50,9 @@ const Filter = ({products}) => {
           <select className="filter-dropdown" value={functionality} name="functionality" onChange={chageFilter}>
             <option className="dropdown-item" value="all">Wszystkie</option>
             <option className="dropdown-item" value="addwash">Drzwi AddWash</option>
-            <option className="dropdown-item" value="aiControl">Panel AI Control</option>
+            <option className="dropdown-item" value="AI Control">Panel AI Control</option>
             <option className="dropdown-item" value="inwerterowy">Inwerterowy</option>
-            <option className="dropdown-item" value="dysplay">Wyświetlacz elektroniczny</option>
+            <option className="dropdown-item" value="wyświetlacz">Wyświetlacz elektroniczny</option>
           </select>
         </li>
         <li>
@@ -72,4 +78,4 @@ const Filter = ({products}) => {
   )
 }
 
-export default Filter
+export default Filter;
