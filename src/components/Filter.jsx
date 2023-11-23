@@ -57,13 +57,11 @@ const Filter = ({setFilterProducts, products}) => {
       <ul className="filter-inputs">
         <li>
           <p className='filter_title'><b>Sortuj po:</b></p>
-          <div  className="filter-dropdown" >
-            <select value={category} name="category" onChange={chageFilter}>
+            <select className="filter-dropdown" value={category} name="category" onChange={chageFilter}>
               <option value="all">Wszystkie</option>
               <option value="price">Cena</option>
               <option value="copacity">Pojemnosc</option>
             </select>
-          </div>
         </li>
         <li>
           <p className='filter_title'><b>Funkcje:</b></p>
