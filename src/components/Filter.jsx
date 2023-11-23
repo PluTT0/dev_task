@@ -48,10 +48,10 @@ const Filter = ({ setFilterProducts, products }) => {
 
 
   return (
-    <div className="filter__wrapper">
+    <div className="filter-wrapper">
       <ul className="filter-inputs">
         <li>
-          <p className="filter_title">
+          <p className="filter-title">
             <b>Sortuj po:</b>
           </p>
           <Dropdown
@@ -62,7 +62,7 @@ const Filter = ({ setFilterProducts, products }) => {
           />
         </li>
         <li>
-          <p className="filter_title">
+          <p className="filter-title">
             <b>Funkcje:</b>
           </p>
           <Dropdown
@@ -73,7 +73,7 @@ const Filter = ({ setFilterProducts, products }) => {
           />
         </li>
         <li>
-          <p className="filter_title">
+          <p className="filter-title">
             <b>Klasa energetyczna:</b>
           </p>
           <Dropdown
@@ -84,7 +84,7 @@ const Filter = ({ setFilterProducts, products }) => {
           />
         </li>
         <li>
-          <p className="filter_title">
+          <p className="filter-title">
             <b>Pojemność:</b>
           </p>
           <Dropdown
