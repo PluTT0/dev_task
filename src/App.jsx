@@ -32,12 +32,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className='title__wrapper'>
+      <div className='title-wrapper'>
         <h1 className='title'>Wybierz urządzenie</h1>
       </div>
-      <section className='serch_section'>
+      <section className='serch-section'>
         <div className="content">
-          <div className="input__wrapper">
+          <div className="input-wrapper">
             <input placeholder="Search..." type="text" onChange={onInputChange} />
           </div>
           <Filter products={products} filterProducts={filterProducts} setFilterProducts={setFilterProducts} />
