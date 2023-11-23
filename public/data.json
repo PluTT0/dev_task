@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "image" : "/assets/Rectangle_1751.png",
+        "title" : "WW90T754ABT, Pralka QuickDrive™, 9 kg, biała",
+        "copacity" : "9",
+        "size" : "55 x 60 x 85 cm",
+        "functionality" : "Drzwi AddWash™, Panel AI Control, Silnik inwerterowy",
+        "energy" : "A",
+        "price" : "3 199",
+        "price_data" : "15.09.2022 - 21.09.2022",
+        "credit" : "53,31 zł x 60 rat"
+    },
+    {
+        "id": 2,
+        "image" : "/assets/Rectangle_1751-2.png",
+        "title" : "WW10T654DLH, Pralka EcoBubble™, 10,5 kg, biała",
+        "copacity" : "10.5",
+        "size" : "55 x 60 x 85 cm",
+        "functionality" : "Drzwi AddWash™, Silnik inwerterowy, Wyświetlacz elektroniczny",
+        "energy" : "B",
+        "price" : "3 299",
+        "price_data" : "15.09.2022 - 21.09.2022",
+        "credit" : "53,31 zł x 60 rat"
+    },
+    {
+        "id": 3,
+        "image" : "/assets/Rectangle_1751-1.png",
+        "title" : "WW90T654DLH, Pralka EcoBubble™, 9 kg, biała",
+        "copacity" : "8",
+        "size" : "55 x 60 x 85 cm",
+        "functionality" : "Panel AI Control, Wyświetlacz elektroniczny",
+        "energy" : "C",
+        "price" : "3 199",
+        "price_data" : "15.09.2022 - 21.09.2022",
+        "credit" : "53,31 zł x 60 rat"
+    },
+    {
+        "id": 4,
+        "image" : "/assets/Rectangle_1751-2.png",
+        "title" : "WW90T754ABT, Pralka QuickDrive™, 9 kg, biała",
+        "copacity" : "9",
+        "size" : "55 x 60 x 85 cm",
+        "functionality" : "Drzwi AddWash™, Panel AI Control, Silnik inwerterowy, Wyświetlacz elektroniczny",
+        "energy" : "D",
+        "price" : "3 199",
+        "price_data" : "15.09.2022 - 21.09.2022",
+        "credit" : "53,31 zł x 60 rat"
+    },
+    {
+        "id": 5,
+        "image" : "/assets/Rectangle_1751-2.png",
+        "title" : "WW10T654DLH, Pralka EcoBubble™, 10,5 kg, biała",
+        "copacity" : "10.5",
+        "size" : "55 x 60 x 85 cm",
+        "functionality" : "Drzwi AddWash™, Panel AI Control, Silnik inwerterowy, Wyświetlacz elektroniczny",
+        "energy" : "E",
+        "price" : "3 199",
+        "price_data" : "15.09.2022 - 21.09.2022",
+        "credit" : "53,31 zł x 60 rat"
+    },
+    {
+        "id": 6,
+        "image" : "/assets/Rectangle_1751-2.png",
+        "title" : "WW90T654DLH, Pralka EcoBubble™, 8 kg, biała",
+        "copacity" : "8",
+        "size" : "55 x 60 x 85 cm",
+        "functionality" : "Drzwi AddWash™, Panel AI Control, Silnik inwerterowy, Wyświetlacz elektroniczny",
+        "energy" : "F",
+        "price" : "3 199",
+        "price_data" : "15.09.2022 - 21.09.2022",
+        "credit" : "53,31 zł x 60 rat"
+    },
+    {
+        "id": 7,
+        "image" : "/assets/Rectangle_1751-2.png",
+        "title" : "WW90T654DLH, Pralka EcoBubble™, 8 kg, biała",
+        "copacity" : "8",
+        "size" : "55 x 60 x 85 cm",
+        "functionality" : "Drzwi AddWash™, Panel AI Control, Silnik inwerterowy, Wyświetlacz elektroniczny",
+        "energy" : "F",
+        "price" : "3 199",
+        "price_data" : "15.09.2022 - 21.09.2022",
+        "credit" : "53,31 zł x 60 rat"
+    },
+    {
+        "id": 8,
+        "image" : "/assets/Rectangle_1751-2.png",
+        "title" : "WW90T654DLH, Pralka EcoBubble™, 8 kg, biała",
+        "copacity" : "8",
+        "size" : "55 x 60 x 85 cm",
+        "functionality" : "Drzwi AddWash™, Panel AI Control, Silnik inwerterowy, Wyświetlacz elektroniczny",
+        "energy" : "F",
+        "price" : "3 199",
+        "price_data" : "15.09.2022 - 21.09.2022",
+        "credit" : "53,31 zł x 60 rat"
+    },
+    {
+        "id": 9,
+        "image" : "/assets/Rectangle_1751-2.png",
+        "title" : "WW90T654DLH, Pralka EcoBubble™,  8 kg, biała",
+        "copacity" : "8",
+        "size" : "55 x 60 x 85 cm",
+        "functionality" : "Drzwi AddWash™, Panel AI Control, Silnik inwerterowy, Wyświetlacz elektroniczny",
+        "energy" : "F",
+        "price" : "3 199",
+        "price_data" : "15.09.2022 - 21.09.2022",
+        "credit" : "53,31 zł x 60 rat"
+    },
+    {
+        "id": 10,
+        "image" : "/assets/Rectangle_1751-2.png",
+        "title" : "WW90T654DLH, Pralka EcoBubble™,  8 kg, biała",
+        "copacity" : "8",
+        "size" : "55 x 60 x 85 cm",
+        "functionality" : "Drzwi AddWash™, Panel AI Control, Silnik inwerterowy, Wyświetlacz elektroniczny",
+        "energy" : "F",
+        "price" : "3 199",
+        "price_data" : "15.09.2022 - 21.09.2022",
+        "credit" : "53,31 zł x 60 rat"
+    }
+]
