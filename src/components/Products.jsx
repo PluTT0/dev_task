@@ -3,12 +3,12 @@ import ProductCard from "./ProductCard";
 
 
 const Products = ({filterProducts, serchValue}) => {
-  const [cardsOnPage, setCardsOnPage] = useState(6)
+  const [cardsOnPage, setCardsOnPage] = useState(6);
 
   const setCards = () => {
     setCardsOnPage(cardsOnPage + 5)
   };
-  
+
   return (
     <section className='product__wrapper'>
       <div className='product-list'>
@@ -21,6 +21,6 @@ const Products = ({filterProducts, serchValue}) => {
       </button>
     </section>
   )
-}
+};
 
 export default Products;

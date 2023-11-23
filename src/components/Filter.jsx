@@ -1,99 +1,103 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react';
+import Dropdown from './Dropdown';
+import {translation, categoryOptions, functionalityOptions, energyOptions, copacityOptions} from './helpers/dropdownOptions';
 
-const Filter = ({setFilterProducts, products}) => {
-  const [sortValue, setFilterValue] = useState({
+const Filter = ({ setFilterProducts, products }) => {
+  const [filterValue, setFilterValue] = useState({
     functionality: 'all',
     energy: 'all',
     copacity: 'all',
     category: 'all',
   });
 
-  const {category, copacity, functionality, energy} = sortValue;
+//set filters
+  const chageFilter = (name, value) => {
+    setFilterValue((prevFilterValue) => ({
+      ...prevFilterValue,
+      [name]: value,
+    }));
+  };
 
-  const chageFilter = (e) => {
-    const value = e.target.value;
-    setFilterValue({
-      ...sortValue,
-      [e.target.name]: value,
-    })
-  }
-
+//sort logic
   useEffect(() => {
     let filteredData = [...products];
-  
-    if (sortValue.category === 'price') {
+      
+    if (filterValue.category === 'price') {
       filteredData = filteredData.sort((a, b) => parseInt(a.price.replace(/\s/g, '')) - parseInt(b.price.replace(/\s/g, '')));
     }
-  
-    if (sortValue.category === 'copacity') {
+    if (filterValue.category === 'copacity') {
       filteredData = filteredData.sort((a, b) => parseInt(a.copacity) - parseInt(b.copacity));
     }
-  
-    if (sortValue.functionality !== 'all') {
+    if (filterValue.functionality !== 'all') {
       filteredData = filteredData.filter((item) =>
-        item.functionality.toLowerCase().replace(/\s/g, '').includes(sortValue.functionality.toLowerCase().replace(/\s/g, ''))
+      item.functionality.toLowerCase().replace(/\s/g, '').includes(filterValue.functionality.toLowerCase().replace(/\s/g, ''))
       );
     }
-  
-    if (sortValue.energy !== 'all') {
+    if (filterValue.energy !== 'all') {
       filteredData = filteredData.filter((item) =>
-        item.energy.toLowerCase().replace(/\s/g, '').includes(sortValue.energy.toLowerCase().replace(/\s/g, ''))
+      item.energy.toLowerCase().replace(/\s/g, '').includes(filterValue.energy.toLowerCase().replace(/\s/g, ''))
       );
     }
-  
-    if (sortValue.copacity !== 'all') {
+    if (filterValue.copacity !== 'all') {
       filteredData = filteredData.filter((item) =>
-        parseInt(item.copacity.replace(/\s/g, '')) === parseInt(sortValue.copacity.replace(/\s/g, ''))
+      parseInt(item.copacity.replace(/\s/g, '')) === parseInt(filterValue.copacity.replace(/\s/g, ''))
       );
     }
-  
     setFilterProducts(filteredData);
-  }, [products, setFilterProducts, sortValue]);
-
+  }, [products, setFilterProducts, filterValue]);
 
 
   return (
     <div className="filter__wrapper">
       <ul className="filter-inputs">
         <li>
-          <p className='filter_title'><b>Sortuj po:</b></p>
-            <select className="filter-dropdown" value={category} name="category" onChange={chageFilter}>
-              <option value="all">Wszystkie</option>
-              <option value="price">Cena</option>
-              <option value="copacity">Pojemnosc</option>
-            </select>
+          <p className="filter_title">
+            <b>Sortuj po:</b>
+          </p>
+          <Dropdown
+            name="Category"
+            value={translation.category[filterValue.category]}
+            options={categoryOptions}
+            onChange={(newValue) => chageFilter('category', newValue)}
+          />
         </li>
         <li>
-          <p className='filter_title'><b>Funkcje:</b></p>
-          <select className="filter-dropdown" value={functionality} name="functionality" onChange={chageFilter}>
-            <option className="dropdown-item" value="all">Wszystkie</option>
-            <option className="dropdown-item" value="addwash">Drzwi AddWash</option>
-            <option className="dropdown-item" value="AI Control">Panel AI Control</option>
-            <option className="dropdown-item" value="inwerterowy">Inwerterowy</option>
-            <option className="dropdown-item" value="wyświetlacz">Wyświetlacz elektroniczny</option>
-          </select>
+          <p className="filter_title">
+            <b>Funkcje:</b>
+          </p>
+          <Dropdown
+            name="Functionality"
+            value={translation.functionality[filterValue.functionality]}
+            options={functionalityOptions}
+            onChange={(newValue) => chageFilter('functionality', newValue)}
+          />
         </li>
         <li>
-          <p className='filter_title'><b>Klasa energetyczna:</b></p>
-          <select className="filter-dropdown" value={energy} name="energy" onChange={chageFilter}>
-            <option className="dropdown-item" value="all">Wszystkie</option>
-            <option className="dropdown-item" value="a">A</option>
-            <option className="dropdown-item" value="b">B</option>
-            <option className="dropdown-item" value="c">C</option>
-          </select>
+          <p className="filter_title">
+            <b>Klasa energetyczna:</b>
+          </p>
+          <Dropdown
+            name="Energy"
+            value={translation.energy[filterValue.energy]}
+            options={energyOptions}
+            onChange={(newValue) => chageFilter('energy', newValue)}
+          />
         </li>
         <li>
-          <p className='filter_title'><b>Pojemność:</b></p>
-          <select className="filter-dropdown" name="copacity" value={copacity} onChange={chageFilter}>
-            <option className="dropdown-item" value="all">Wszystkie</option>
-            <option className="dropdown-item" value="9">9 kg</option>
-            <option className="dropdown-item" value="8">8 kg</option>
-            <option className="dropdown-item" value="10.5">10.5 kg</option>
-          </select>
+          <p className="filter_title">
+            <b>Pojemność:</b>
+          </p>
+          <Dropdown
+            name="Copacity"
+            value={translation.copacity[filterValue.copacity]}
+            options={copacityOptions}
+            onChange={(newValue) => chageFilter('copacity', newValue)}
+          />
         </li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default Filter;
+
