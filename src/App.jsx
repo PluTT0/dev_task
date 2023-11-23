@@ -3,7 +3,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import Filter from './components/Filter';
 import Products from './components/Products';
-import Dropdown from './components/Dropdown';
 
 const App = () => {
   const [products, setProducts] = useState([]);
