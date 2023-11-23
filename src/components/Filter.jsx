@@ -1,7 +1,12 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const Filter = ({filterProducts, setProducts}) => {
-  const [sortValue, setFilterValue] = useState({});
+const Filter = ({setFilterProducts, products}) => {
+  const [sortValue, setFilterValue] = useState({
+    functionality: 'all',
+    energy: 'all',
+    copacity: 'all',
+    category: 'all',
+  });
 
   const {category, copacity, functionality, energy} = sortValue;
 
@@ -12,38 +17,53 @@ const Filter = ({filterProducts, setProducts}) => {
       [e.target.name]: value,
     })
   }
-  
-  
-  const sortProd = useCallback((data) => {
-    if(category === 'price') {
-       setProducts(data.sort((a, b) => { return  parseInt(a.price.replace(/\s/g,'')) - parseInt(b.price.replace(/\s/g,''))}))
-    } else if(functionality !== 'all') {
-       setProducts(data.filter((item) => item.functionality.toLowerCase().replace(/\s/g,'').includes(functionality.toLowerCase().replace(/\s/g,''))))
-    } else if(energy !== 'all') {
-      setProducts(data.filter((item) => item.energy.toLowerCase().replace(/\s/g,'').includes(energy.toLowerCase().replace(/\s/g,''))))
-    } else if (copacity !== 'all') {
-      setProducts(data.filter((item) => item.parseInt(copacity).includes(parseInt(copacity))))
-    }
-    else {
-       setProducts(data)
-    }
-  },[category, copacity, energy, functionality, setProducts])
 
- 
   useEffect(() => {
-      sortProd(filterProducts)
-  },[sortProd, sortValue])
+    let filteredData = [...products];
   
+    if (sortValue.category === 'price') {
+      filteredData = filteredData.sort((a, b) => parseInt(a.price.replace(/\s/g, '')) - parseInt(b.price.replace(/\s/g, '')));
+    }
+  
+    if (sortValue.category === 'copacity') {
+      filteredData = filteredData.sort((a, b) => parseInt(a.copacity) - parseInt(b.copacity));
+    }
+  
+    if (sortValue.functionality !== 'all') {
+      filteredData = filteredData.filter((item) =>
+        item.functionality.toLowerCase().replace(/\s/g, '').includes(sortValue.functionality.toLowerCase().replace(/\s/g, ''))
+      );
+    }
+  
+    if (sortValue.energy !== 'all') {
+      filteredData = filteredData.filter((item) =>
+        item.energy.toLowerCase().replace(/\s/g, '').includes(sortValue.energy.toLowerCase().replace(/\s/g, ''))
+      );
+    }
+  
+    if (sortValue.copacity !== 'all') {
+      filteredData = filteredData.filter((item) =>
+        parseInt(item.copacity.replace(/\s/g, '')) === parseInt(sortValue.copacity.replace(/\s/g, ''))
+      );
+    }
+  
+    setFilterProducts(filteredData);
+  }, [products, setFilterProducts, sortValue]);
+
+
+
   return (
     <div className="filter__wrapper">
       <ul className="filter-inputs">
         <li>
           <p className='filter_title'><b>Sortuj po:</b></p>
-          <select className="filter-dropdown" value={category} name="category" onChange={chageFilter}>
-            <option value="all">Wszystkie</option>
-            <option value="price">Cena</option>
-            <option value="capacity">Pojemnosc</option>
-          </select>
+          <div  className="filter-dropdown" >
+            <select value={category} name="category" onChange={chageFilter}>
+              <option value="all">Wszystkie</option>
+              <option value="price">Cena</option>
+              <option value="copacity">Pojemnosc</option>
+            </select>
+          </div>
         </li>
         <li>
           <p className='filter_title'><b>Funkcje:</b></p>
@@ -66,7 +86,7 @@ const Filter = ({filterProducts, setProducts}) => {
         </li>
         <li>
           <p className='filter_title'><b>Pojemność:</b></p>
-          <select className="filter-dropdown" name="capacity" value={copacity} onChange={chageFilter}>
+          <select className="filter-dropdown" name="copacity" value={copacity} onChange={chageFilter}>
             <option className="dropdown-item" value="all">Wszystkie</option>
             <option className="dropdown-item" value="9">9 kg</option>
             <option className="dropdown-item" value="8">8 kg</option>
